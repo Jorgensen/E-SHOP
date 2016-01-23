@@ -1,50 +1,28 @@
 extends layout
 
 block content
-  div.container
-    div.jumbotron
-      h1 荣耀6Plus
-      P
-        | 最高直降200    全天开放购买
-    div.row
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/mate8.png" alt="mate8")
-        div.center-block 
-          p Mate 8
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/honor7.png" alt="honor7")
-        div.center-block 
-          p Honor 7
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/mate8.png" alt="mate8")
-        div.center-block 
-          p Mate 8
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/honor7.png" alt="honor7")
-        div.center-block 
-          p Honor 7
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/mate8.png" alt="mate8")
-        div.center-block 
-          p Mate 8
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/honor7.png" alt="honor7")
-        div.center-block 
-          p Honor 7
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/mate8.png" alt="mate8")
-        div.center-block 
-          p Mate 8
-      div.col-xs-6.col-md-3
-        a.thumbnail
-          img(src="/images/honor7.png" alt="honor7")
-        div.center-block 
-          p Honor 7
-      
+  .container
+    #myCarousel.carousel.slide(data-ride='carousel')
+      // Indicators
+      ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        li(data-target='#myCarousel', data-slide-to='1')
+        li(data-target='#myCarousel', data-slide-to='2')
+      .carousel-inner
+        .item.active
+          img(src='/images/banner1.jpg', alt='First slide')
+        .item
+          img(src='/images/banner2.jpg', alt='Second slide')
+        .item
+          img(src='/images/banner3.jpg', alt='Third slide')
+      a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+        span.glyphicon.glyphicon-chevron-left
+      a.right.carousel-control(href='#myCarousel',role='button', data-slide='next')
+        span.glyphicon.glyphicon-chevron-right
+    
+    .row.list
+      each item in phones
+        .col-xs-6.col-md-3
+          a.thumbnail(href="/phone/#{item._id}")
+            img(src="#{item.url}" alt="#{item.name}")
+          p #{item.name}

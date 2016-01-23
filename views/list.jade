@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th 序号
+            th 名称
+            th 价格
+            th 操作
+        tbody
+          each phone in phones
+            tr
+              td #{phone._id}
+              td #{phone.name}
+              td #{phone.price}
+              td
+                button.btn.btn-primary(src="") 更新
+                button.btn.btn-danger(src="") 删除
